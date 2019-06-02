@@ -41,7 +41,7 @@
         <div class="col-5">
             <label for="basic-url">Your image</label><span class="required"></span>
             <input id="input-id" type="file" class="file" data-preview-file-type="text">
-        </div>
+        </div>php artisan make:model User --migration
     </div>
 
     <div class="row">
