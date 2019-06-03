@@ -8,6 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 
         <!-- Styles -->
         <style>
@@ -85,8 +86,8 @@
                 </div>
 
                 <div class="links">
-                    <a href="all">View comments</a>
-                    <a href="add">Add comment</a>
+                    <a href="show-all">View comments</a>
+                    <a href="comment/create">Add comment</a>
                 </div>
             </div>
         </div>

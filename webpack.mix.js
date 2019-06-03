@@ -23,6 +23,10 @@ mix.styles([
     'node_modules/bootstrap-fileinput/css/fileinput.css'
 ], 'public/css/my.css');
 
+mix.styles([
+    'resources/css/404.css',
+], 'public/css/error.css');
+
 mix.scripts([
     'node_modules/bootstrap-fileinput/js/fileinput.js',
     'resources/js/notify.min.js',

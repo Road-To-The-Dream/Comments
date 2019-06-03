@@ -15,11 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/all', function () {
-    return view('comments');
+Route::get('/show-all', function () {
+    return view('all');
 });
 
-Route::get('/add', function () {
-    return view('add');
-});
+Route::resource('comment', 'CommentController');
 

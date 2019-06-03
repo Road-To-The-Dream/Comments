@@ -13,7 +13,7 @@ class CommentRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,18 +24,18 @@ class CommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'pointOfDeparture' => 'required',
-            'pointOfArrival' => 'required',
-            'date' => 'required'
+            'userName' => 'required',
+            'email' => 'required',
+            'message' => 'required'
         ];
     }
 
     public function messages()
     {
         return [
-            'pointOfDeparture.required' => 'Город отправления не введён!',
-            'pointOfArrival.required' => 'Город прибития не введён!',
-            'date.required' => 'Дата не введена!'
+            'userName' => 'Empty field userName',
+            'email' => 'Empty field email',
+            'message' => 'Empty field message'
         ];
     }
 }
