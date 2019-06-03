@@ -81,12 +81,12 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Добавление комментариев !
+                    Add comments !
                 </div>
 
                 <div class="links">
-                    <a href="all">Просмотреть комментарии</a>
-                    <a href="create">Добавить новый комментарий</a>
+                    <a href="all">View comments</a>
+                    <a href="add">Add comment</a>
                 </div>
             </div>
         </div>

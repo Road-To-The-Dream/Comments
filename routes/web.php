@@ -19,7 +19,7 @@ Route::get('/all', function () {
     return view('comments');
 });
 
-Route::get('/create', function () {
-    return view('create');
+Route::get('/add', function () {
+    return view('add');
 });
 

@@ -18,6 +18,7 @@ class CreateCommentsTable extends Migration
             $table->string('user_name');
             $table->string('email')->unique();
             $table->string('home_page')->nullable();
+            $table->string('file')->nullable();
             $table->string('text');
             $table->string('browser');
             $table->string('ip');

@@ -16,6 +16,8 @@ mix.js('resources/js/app.js', 'public/js')
 
 mix.copyDirectory('resources/files', 'public/files');
 
+mix.copyDirectory('resources/img', 'public/img');
+
 mix.styles([
     'resources/css/create.css',
     'node_modules/bootstrap-fileinput/css/fileinput.css'
@@ -23,6 +25,7 @@ mix.styles([
 
 mix.scripts([
     'node_modules/bootstrap-fileinput/js/fileinput.js',
-    'resources/js/create.js'
+    'resources/js/notify.min.js',
+    'resources/js/add.js'
 ], 'public/js/my.js');
 

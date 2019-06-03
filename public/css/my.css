@@ -1,3 +1,7 @@
+body {
+    background: url('/files/background.png') repeat #fff;
+}
+
 span.required:after {
     color: red;
     content: " *"
@@ -12,6 +16,17 @@ p.tag {
 
 p.tag:hover {
     color: #1ccfc9;
+}
+
+.load {
+    position: relative;
+}
+
+#info {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    cursor: pointer;
 }
 /*!
  * bootstrap-fileinput v5.0.3
