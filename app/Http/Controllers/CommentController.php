@@ -35,7 +35,11 @@ class CommentController extends Controller
      */
     public function store(CommentRequest $request)
     {
-        //
+        if ($request->ajax()) {
+            return view('welcome');
+        }
+
+        return view('errors.404');
     }
 
     /**

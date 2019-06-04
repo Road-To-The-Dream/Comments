@@ -33,9 +33,9 @@ class CommentRequest extends FormRequest
     public function messages()
     {
         return [
-            'userName' => 'Empty field userName',
-            'email' => 'Empty field email',
-            'message' => 'Empty field message'
+            'userName.required' => 'Field userName is empty',
+            'email.required' => 'Field email is empty',
+            'message.required' => 'Field message is empty'
         ];
     }
 }
