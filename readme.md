@@ -15,7 +15,7 @@ Use composer install
 Rename file .env.example in .env and fill it with your info for db connection
 </li>
 <li>
-Run the command: (chmod +x bin/install.sh) for set up access to file
+Run the command: (chmod +x bin/install.sh) for setup access to file
 </li>
 <li>
 Run the command from the directory project: (bin/install.sh) for run executable file

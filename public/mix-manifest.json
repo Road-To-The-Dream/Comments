@@ -1,6 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/img/loading.gif": "/img/loading.gif",
     "/css/my.css": "/css/my.css",
     "/css/error.css": "/css/error.css",
     "/css/welcome.css": "/css/welcome.css",
