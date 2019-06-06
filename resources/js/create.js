@@ -45,6 +45,13 @@ $(document).ready(function () {
                 );
             },
             error: function (errorResponse) {
+                $.notify(
+                    "Ошибка при отправке данных !", {
+                        className: 'error',
+                        globalPosition: 'bottom left'
+                    }
+                );
+
                 $(".request").empty();
 
                 $.each(errorResponse['responseJSON']['errors'], function (key, value) {
