@@ -11,3 +11,4 @@ npm-debug.log
 yarn-error.log
 bin/CacheClear.sh
 resources/user_files/*
+!.gitkeep
