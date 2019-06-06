@@ -23,7 +23,7 @@
             <div class="col-6">
                 <div class="form-group">
                     <label for="userName">User name</label><span class="required"></span>
-                    <input type="text" class="form-control" id="userName" name="userName" value="{{ old('userName') }}" autofocus>
+                    <input type="text" class="form-control" id="userName" name="userName" value="{{ old('userName') }}" required autofocus>
                 </div>
             </div>
         </div>
@@ -53,7 +53,7 @@
             <div class="col-6 load">
                 <label for="basic-url">Your image or file</label><span class="required"></span>
                 <img id="info" src="/img/question.png" alt="question">
-                <input id="input-id" name="myFile" type="file" class="file" data-preview-file-type="text">
+                <input id="input-id" name="myFile" type="file" class="file" data-preview-file-type="text" required>
             </div>
         </div>
 
@@ -61,7 +61,7 @@
             <div class="col-6">
                 <div class="form-group">
                     <label for="message">Message</label><span class="required"></span>
-                    <textarea class="form-control" id="message" name="message" rows="5"></textarea>
+                    <textarea class="form-control" id="message" name="message" rows="5"required></textarea>
                     <p class="tag">[ i ]</p>
                     <p class="tag">[ strong ]</p>
                     <p class="tag">[ code ]</p>

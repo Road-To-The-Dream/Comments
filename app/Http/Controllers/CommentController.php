@@ -4,13 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use App\Http\Requests\CommentRequest;
+use App\Services\FileManager;
+use App\Services\Utility;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-    private const USER_PATH = '/../resources/user_files/';
-    private const DATETIME_FORMAT = 'H:i:s';
-
     /**
      * Display a listing of the resource.
      *
@@ -40,22 +39,24 @@ class CommentController extends Controller
     public function store(CommentRequest $request)
     {
         if ($request->ajax()) {
+            $input = Utility::stripXSS($request->all());
+
             $comment = new Comment();
 
-            $comment->user_name = $request->get('userName');
-            $comment->email = $request->get('email');
-            $comment->home_page = $request->get('homePage') ?? null;
-            $comment->file = $_FILES['myFile']['name'];
-            $comment->text = $request->get('message');
+            $comment->user_name = $input['userName'];
+            $comment->email = $input['email'];
+            $comment->home_page = $input['homePage'] ?? null;
+            $comment->file = FileManager::getPath();
+            $comment->text = $input['message'];
             $comment->ip = $_SERVER['REMOTE_ADDR'];
             $comment->browser = $_SERVER["HTTP_USER_AGENT"];
 
             $comment->save();
 
-            move_uploaded_file($_FILES['myFile']['tmp_name'], getcwd() . self::USER_PATH . date(self::DATETIME_FORMAT) . '-' . $_FILES['myFile']['name']);
+            FileManager::moveFile();
+        } else {
+            return view('errors.403');
         }
-
-        return view('errors.403');
     }
 
     /**

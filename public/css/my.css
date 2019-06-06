@@ -54,6 +54,12 @@ p.tag:hover {
     box-shadow: 0 0 0 0 rgba(0, 40, 120, 0);
     background-position: 0 0;
 }
+
+.btn-submit,
+.btn-submit:active,
+.btn-submit:focus {
+    outline: none;
+}
 /*!
  * bootstrap-fileinput v5.0.3
  * http://plugins.krajee.com/file-input
