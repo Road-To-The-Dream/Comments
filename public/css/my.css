@@ -1,8 +1,81 @@
 body {
-    background: url('/files/background.png') repeat #fff;
+    background: url('/img/background.png') repeat #fff;
 }
 
-label, a {
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.header {
+    background: url('/img/header-bg.png') repeat #fff;
+    height: 75px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.content {
+    flex: 1 0 auto;
+}
+
+.footer {
+    background: url('/img/header-bg.png') repeat #fff;
+    flex: 0 0 auto;
+    height: 75px;
+}
+
+.list a, .name-logo{
+    font-size: 20px;
+    color: black;
+    padding: 0.5rem 1rem 0 0.5rem;
+    text-decoration: none;
+}
+
+.header a:hover {
+    color: yellow;
+    text-decoration: none;
+}
+
+.name-logo{
+    font-size: 25px;
+    color: yellow;
+    margin-right: 14px;
+    font-weight: bold;
+    padding: 0.5rem 1rem 0 0;
+}
+
+.foo {
+    margin: 25px 30px 0 0;
+    padding: 0;
+}
+
+.foo p {
+    display: inline;
+    font-size: 21px;
+    color: black;
+    margin-right: 10px;
+}
+
+.foo .main {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.space {
+    display: inline;
+    margin-right: 50px;
+}
+
+label {
     font-size: 16px;
 }
 

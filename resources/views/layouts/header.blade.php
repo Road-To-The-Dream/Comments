@@ -19,26 +19,53 @@
     <script src="{{ mix('js/my.js') }}"></script>
 </head>
 <body>
-@section('sidebar')
-    <div class="container mb-3">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="/">Comments</a>
+<div class="wrapper">
 
-            <div class="collapse navbar-collapse" id="navbarColor02">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="add">View comments</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="all">Add comments</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+    @section('sidebar')
+        <div class="container mb-3">
+            <nav class="header navbar navbar-expand-lg navbar-dark">
+                <a href="/" class="nav-link p-0 pr-2">
+                    <img class="mr-2" src="/img/logo.png" alt="image">
+                </a>
+                <a href="/" class="name-logo">COMMENTS</a>
+
+                <div class="collapse navbar-collapse" id="navbarColor02">
+                    <ul class="navbar-nav list mr-auto">
+                        <a href="/show-all">View comments</a>
+                        <a href="/comment/create">Add comments</a>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    @show
+
+    <div class="content">
+        <div class="container">
+            @yield('content')
+        </div>
     </div>
-@show
-<div class="container">
-    @yield('content')
+
+    @section('footer')
+        <div class="container">
+            <nav class="footer navbar navbar-expand-lg navbar-dark">
+                <a href="https://www.instagram.com/road_.to_.the_.dream/" target="_blank" class="nav-link p-0 pr-2">
+                    <img class="mr-3" src="/img/instagram.png" alt="image">
+                </a>
+                <a href="https://vk.com/id181602675" target="_blank" class="nav-link p-0 pr-2">
+                    <img class="mr-5" src="/img/vk.png" alt="image">
+                </a>
+
+                <div class="foo">
+                    <p class="main">Developer : </p>
+                    <p>Sushko Sergey</p>
+                    <div class="space"></div>
+                    <p class="main">E-mail: </p>
+                    <p>rpz14.sergey@gmail.com</p>
+                </div>
+            </nav>
+        </div>
+    @show
+
 </div>
 </body>
 </html>
