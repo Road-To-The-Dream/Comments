@@ -26,7 +26,7 @@ class CommentRequest extends FormRequest
         return [
             'userName' => 'required',
             'email' => 'required|unique:comments,email',
-            'myFile' => 'required|max:100|mimes:png, jpg, txt',
+            'myFile' => 'required|max:100|mimes:png,jpg,txt',
             'message' => 'required'
         ];
     }

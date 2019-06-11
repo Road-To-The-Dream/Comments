@@ -10,17 +10,12 @@
         </div>
     </div>
 
-    @for($i = 0; $i < 5; $i++)
+    @foreach($comments as $comment)
         <ul>
             <li>
                 <div class="row">
                     <div class="col">
-                        <div class="shadow-none p-3 mb-2 bg-light rounded">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Architecto autem est harum maxime minus nam nihil perspiciatis quae quam voluptates? Accusantium ad
-                            autem cum cupiditate debitis deserunt dolores ea exercitationem fuga fugit hic impedit itaque laborum
-                            mollitia obcaecati officiis perspiciatis porro, quia ratione recusandae saepe similique tempora tempore
-                            temporibus veritatis.
-                        </div>
+                        <div class="shadow-none p-3 mb-2 bg-light rounded">{{ $comment->text }}</div>
                         <div class="col">
                             <div class="row justify-content-end">
                                 <div class="col text-right">
@@ -32,7 +27,7 @@
                 </div>
             </li>
         </ul>
-    @endfor
+    @endforeach
 
     <ul>
         <li>Комментарий первый</li>

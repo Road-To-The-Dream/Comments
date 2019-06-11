@@ -17,7 +17,8 @@ class CommentController extends Controller
      */
     public function index()
     {
-        return view('errors.404');
+        $data = Comment::all();
+        return view('all', ['comments' => $data]);
     }
 
     /**
@@ -36,7 +37,7 @@ class CommentController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CommentRequest $request)
+    public function store(CommentRequest $request, FileManager $manager)
     {
         if ($request->ajax()) {
             $input = Utility::stripXSS($request->all());
@@ -46,14 +47,18 @@ class CommentController extends Controller
             $comment->user_name = $input['userName'];
             $comment->email = $input['email'];
             $comment->home_page = $input['homePage'] ?? null;
-            $comment->file = FileManager::getPath();
+            $comment->file = $manager->getPath();
             $comment->text = $input['message'];
             $comment->ip = $_SERVER['REMOTE_ADDR'];
             $comment->browser = $_SERVER["HTTP_USER_AGENT"];
 
             $comment->save();
 
-            FileManager::moveFile();
+            if ($_FILES['myFile']['type'] === 'text/plain') {
+                $manager->moveFile($_FILES['myFile']['tmp_name']);
+            } else {
+                $manager->resizeImage($_FILES['myFile']['tmp_name']);
+            }
         } else {
             return view('errors.403');
         }

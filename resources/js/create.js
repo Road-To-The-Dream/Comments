@@ -43,6 +43,8 @@ $(document).ready(function () {
                         globalPosition: 'bottom left'
                     }
                 );
+
+                $(".request").empty();
             },
             error: function (errorResponse) {
                 $.notify(

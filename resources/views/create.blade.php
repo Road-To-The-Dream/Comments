@@ -11,7 +11,7 @@
     </div>
 
     <div class="row justify-content-center">
-        <div class="col-6 mb-4">
+        <div class="col-6 mt-2 mb-2">
             <div class="request"></div>
         </div>
     </div>
