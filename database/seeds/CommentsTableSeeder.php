@@ -19,7 +19,6 @@ class CommentsTableSeeder extends Seeder
                 'file' => 'qdqwdqw',
                 'text' => 'First comment',
                 'parent_id' => 0,
-                'parent_path' => '/',
                 'ip' => '127.0.0.1',
                 'browser' => 'Google',
                 'created_at' => '2019-06-10 12:13:13'
@@ -31,7 +30,6 @@ class CommentsTableSeeder extends Seeder
                 'file' => 'qdqwdqw',
                 'text' => 'Third comment',
                 'parent_id' => 1,
-                'parent_path' => '1/',
                 'ip' => '127.0.0.1',
                 'browser' => 'Google',
                 'created_at' => '2019-06-10 12:14:13'
@@ -43,7 +41,6 @@ class CommentsTableSeeder extends Seeder
                 'file' => 'qdqwdqw',
                 'text' => 'Second comment',
                 'parent_id' => 0,
-                'parent_path' => '/',
                 'ip' => '127.0.0.1',
                 'browser' => 'Google',
                 'created_at' => '2019-06-10 12:16:1'
@@ -55,7 +52,6 @@ class CommentsTableSeeder extends Seeder
                 'file' => 'qdqwdqw',
                 'text' => 'Third comment',
                 'parent_id' => 1,
-                'parent_path' => '1/2/',
                 'ip' => '127.0.0.1',
                 'browser' => 'Google',
                 'created_at' => '2019-06-10 13:13:13'
@@ -67,7 +63,6 @@ class CommentsTableSeeder extends Seeder
                 'file' => 'qdqwdqw',
                 'text' => 'Third comment',
                 'parent_id' => 0,
-                'parent_path' => '/',
                 'ip' => '127.0.0.1',
                 'browser' => 'Google',
                 'created_at' => '2019-06-10 14:13:13'
@@ -79,7 +74,6 @@ class CommentsTableSeeder extends Seeder
                 'file' => 'qdqwdqw',
                 'text' => 'Third comment',
                 'parent_id' => 1,
-                'parent_path' => '1/2/3/',
                 'ip' => '127.0.0.1',
                 'browser' => 'Google',
                 'created_at' => '2019-06-10 14:14:13'
@@ -91,7 +85,6 @@ class CommentsTableSeeder extends Seeder
                 'file' => 'qdqwdqw',
                 'text' => 'Third comment',
                 'parent_id' => 0,
-                'parent_path' => '/',
                 'ip' => '127.0.0.1',
                 'browser' => 'Google',
                 'created_at' => '2019-06-10 14:20:13'

@@ -70,6 +70,9 @@
             </div>
         </div>
 
+        <input type="text" name="parent_id" value="{{ $_GET['parent_id'] ?? 0 }}" hidden>
+        <input type="text" name="level" value="{{ $_GET['level'] ?? 0 }}" hidden>
+
         <div class="row justify-content-center mb-5">
             <div class="col-6 text-right">
                 <button type="submit" class="btn-submit">Add comment</button>

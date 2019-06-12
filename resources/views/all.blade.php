@@ -5,8 +5,8 @@
 @section('content')
 
     <div class="row mt-3 mb-4">
-        <div class="col-6">
-            <a href="/comment/create" class="btn-submit">Add new comment</a>
+        <div class="col text-right">
+            <a class="btn-new-comment" href="/comment/create">Add new comment</a>
         </div>
     </div>
 
@@ -17,7 +17,7 @@
 
                     <div class="row border-bottom mb-3">
                         <div class="col text-left">
-                            <p class="comment-head"><strong>User Name :</strong> {{ $parentComment->user_name }}</p>
+                            <p class="comment-head"><strong>Name :</strong> {{ $parentComment->user_name }}</p>
                         </div>
                         <div class="col text-right">
                             <p class="comment-head"><strong>Date added :</strong> {{ $parentComment->created_at }}</p>
@@ -33,7 +33,7 @@
                             <a href="{{ $parentComment->file }}" download>Attached file</a>
                         </div>
                         <div class="col text-right">
-                            <button type="button" class="btn btn-success">Reply</button>
+                            <button type="button" class="btn btn-success" onclick="window.location='/comment/create?parent_id={{ $parentComment->id }}&level=1'">Reply</button>
                         </div>
                     </div>
 
@@ -45,11 +45,11 @@
                 <div class="row">
                     <div class="col">
                         <div class="shadow-sm pt-0 p-3 mb-3 bg-white rounded border border-success"
-                             style="margin-left: {{ $childComment->parent_path * 4}}0px">
+                             style="margin-left: {{ $childComment->level * 4}}0px">
 
                             <div class="row border-bottom mb-3 comment-head">
                                 <div class="col text-left">
-                                    <p><strong>User Name :</strong> {{ $childComment->user_name }}</p>
+                                    <p><strong>Name :</strong> {{ $childComment->user_name }}</p>
                                 </div>
                                 <div class="col text-right">
                                     <p><strong>Date added :</strong> {{ $childComment->created_at }}</p>
@@ -65,7 +65,7 @@
                                     <a href="{{ $childComment->file }}" download>Attached file</a>
                                 </div>
                                 <div class="col text-right">
-                                    <button type="button" class="btn btn-success">Reply</button>
+                                    <button type="button" class="btn btn-success" onclick="window.location='/comment/create?parent_id={{ $parentComment->id }}&level={{ $childComment->level + 1 }}'">Reply</button>
                                 </div>
                             </div>
 

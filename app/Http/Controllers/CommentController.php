@@ -34,7 +34,10 @@ class CommentController extends Controller
      */
     public function create()
     {
-        return view('create');
+        return view('create', [
+            'parent_id' => $_GET['parent_id'] ?? null,
+            'level' => $_GET['level'] ?? null
+        ]);
     }
 
     /**
@@ -55,6 +58,8 @@ class CommentController extends Controller
             $comment->home_page = $input['homePage'] ?? null;
             $comment->file = $manager->getPath();
             $comment->text = $input['message'];
+            $comment->parent_id = $input['parent_id'] ?? 0;
+            $comment->level = $input['level'] ?? 0;
             $comment->ip = $_SERVER['REMOTE_ADDR'];
             $comment->browser = $_SERVER["HTTP_USER_AGENT"];
 

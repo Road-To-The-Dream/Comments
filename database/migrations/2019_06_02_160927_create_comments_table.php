@@ -21,7 +21,7 @@ class CreateCommentsTable extends Migration
             $table->string('file');
             $table->string('text');
             $table->integer('parent_id')->default(0);
-            $table->string('parent_path')->default('/');
+            $table->integer('level')->default(0);
             $table->string('ip');
             $table->string('browser');
             $table->timestamps();
