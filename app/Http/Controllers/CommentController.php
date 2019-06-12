@@ -17,8 +17,14 @@ class CommentController extends Controller
      */
     public function index()
     {
-        $data = Comment::all();
-        return view('all', ['comments' => $data]);
+        $parentComments = Comment::where('parent_id', 0)->orderBy('created_at', 'DESC')->get();
+        $parents_id = Comment::select('id')->where('parent_id', 0)->get()->toArray();
+        $childComments = Comment::whereIn('parent_id', $parents_id)->get();
+
+        return view('all', [
+            'parentComments' => $parentComments,
+            'childComments' => $childComments
+        ]);
     }
 
     /**
