@@ -17,15 +17,15 @@
 
                     <div class="row border-bottom mb-3">
                         <div class="col text-left">
-                            <p>User Name: {{ $parentComment->user_name }}</p>
+                            <p class="comment-head"><strong>User Name :</strong> {{ $parentComment->user_name }}</p>
                         </div>
                         <div class="col text-right">
-                            <p>Date added: {{ $parentComment->created_at }}</p>
+                            <p class="comment-head"><strong>Date added :</strong> {{ $parentComment->created_at }}</p>
                         </div>
                     </div>
 
                     <div class="row mb-3">
-                        <div class="col">{{ $parentComment->text }}</div>
+                        <div class="col comment-text">{!! $parentComment->text !!}</div>
                     </div>
 
                     <div class="row">
@@ -44,20 +44,20 @@
             @if($childComment->parent_id === $parentComment->id)
                 <div class="row">
                     <div class="col">
-                        <div class="shadow-sm p-3 mb-3 bg-white rounded"
+                        <div class="shadow-sm pt-0 p-3 mb-3 bg-white rounded border border-success"
                              style="margin-left: {{ $childComment->parent_path * 4}}0px">
 
-                            <div class="row border-bottom mb-3">
+                            <div class="row border-bottom mb-3 comment-head">
                                 <div class="col text-left">
-                                    <p>User Name: {{ $childComment->user_name }}</p>
+                                    <p><strong>User Name :</strong> {{ $childComment->user_name }}</p>
                                 </div>
                                 <div class="col text-right">
-                                    <p>Date added: {{ $childComment->created_at }}</p>
+                                    <p><strong>Date added :</strong> {{ $childComment->created_at }}</p>
                                 </div>
                             </div>
 
                             <div class="row mb-3">
-                                <div class="col">{{ $childComment->text }}</div>
+                                <div class="col comment-text">{!! $childComment->text !!}</div>
                             </div>
 
                             <div class="row">

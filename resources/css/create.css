@@ -133,3 +133,11 @@ p.tag:hover {
 .btn-submit:focus {
     outline: none;
 }
+
+.comment-head {
+    font-size: 18px;
+}
+
+.comment-text {
+    font-size: 16px;
+}

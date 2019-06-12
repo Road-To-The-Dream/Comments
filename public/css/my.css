@@ -133,6 +133,18 @@ p.tag:hover {
 .btn-submit:focus {
     outline: none;
 }
+
+.comment-head {
+    font-size: 18px;
+}
+
+.comment-text {
+    font-size: 16px;
+}
+
+#text-answer {
+    font-size: 18px;
+}
 /*!
  * bootstrap-fileinput v5.0.3
  * http://plugins.krajee.com/file-input
