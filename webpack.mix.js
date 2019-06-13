@@ -22,7 +22,7 @@ mix.copyDirectory([
 ], 'public/img');
 
 mix.styles([
-    'resources/css/create.css',
+    'resources/css/style.css',
     'node_modules/bootstrap-fileinput/css/fileinput.css'
 ], 'public/css/my.css');
 

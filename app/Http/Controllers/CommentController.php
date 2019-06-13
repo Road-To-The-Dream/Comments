@@ -17,7 +17,7 @@ class CommentController extends Controller
      */
     public function index()
     {
-        $parentComments = Comment::where('parent_id', 0)->orderBy('created_at', 'DESC')->get();
+        $parentComments = Comment::where('parent_id', 0)->orderBy('created_at', 'DESC')->paginate(2);
         $parents_id = Comment::select('id')->where('parent_id', 0)->get()->toArray();
         $childComments = Comment::whereIn('parent_id', $parents_id)->get();
 

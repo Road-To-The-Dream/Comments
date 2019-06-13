@@ -33,7 +33,10 @@
                             <a href="{{ $parentComment->file }}" download>Attached file</a>
                         </div>
                         <div class="col text-right">
-                            <button type="button" class="btn btn-success" onclick="window.location='/comment/create?parent_id={{ $parentComment->id }}&level=1'">Reply</button>
+                            <button type="button" class="btn btn-success"
+                                    onclick="window.location='/comment/create?parent_id={{ $parentComment->id }}&level=1'">
+                                Reply
+                            </button>
                         </div>
                     </div>
 
@@ -65,7 +68,10 @@
                                     <a href="{{ $childComment->file }}" download>Attached file</a>
                                 </div>
                                 <div class="col text-right">
-                                    <button type="button" class="btn btn-success" onclick="window.location='/comment/create?parent_id={{ $parentComment->id }}&level={{ $childComment->level + 1 }}'">Reply</button>
+                                    <button type="button" class="btn btn-success"
+                                            onclick="window.location='/comment/create?parent_id={{ $parentComment->id }}&level={{ $childComment->level + 1 }}'">
+                                        Reply
+                                    </button>
                                 </div>
                             </div>
 
@@ -75,5 +81,7 @@
             @endif
         @endforeach
     @endforeach
+
+    {{ $parentComments->links('layouts.pagination') }}
 
 @endsection

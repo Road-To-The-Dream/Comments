@@ -31,7 +31,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarColor02">
                     <ul class="navbar-nav list mr-auto">
-                        <a href="/show-all">View comments</a>
+                        <a href="/show-all">Show comments</a>
                         <a href="/comment/create">Add comments</a>
                     </ul>
                 </div>

@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="show-all">View comments</a>
+                    <a href="show-all">Show comments</a>
                     <a href="comment/create">Add comment</a>
                 </div>
             </div>
