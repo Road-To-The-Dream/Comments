@@ -169,6 +169,16 @@ p.tag:hover {
     color: white;
     transform: translateY(-7px);
 }
+
+.page-link {
+    color: #000;
+    background-color: #b5b6b7;
+}
+
+.page-item.active .page-link {
+    background-color: #38c172;
+    border-color: #38c172;
+}
 /*!
  * bootstrap-fileinput v5.0.3
  * http://plugins.krajee.com/file-input

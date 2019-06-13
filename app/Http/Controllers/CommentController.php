@@ -21,7 +21,7 @@ class CommentController extends Controller
         $parents_id = Comment::select('id')->where('parent_id', 0)->get()->toArray();
         $childComments = Comment::whereIn('parent_id', $parents_id)->get();
 
-        return view('all', [
+        return view('show', [
             'parentComments' => $parentComments,
             'childComments' => $childComments
         ]);
