@@ -37,6 +37,6 @@ mix.styles([
 mix.scripts([
     'node_modules/bootstrap-fileinput/js/fileinput.js',
     'resources/js/notify.min.js',
-    'resources/js/create.js'
+    'resources/js/script.js'
 ], 'public/js/my.js');
 

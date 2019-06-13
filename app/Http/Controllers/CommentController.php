@@ -71,7 +71,7 @@ class CommentController extends Controller
                 $manager->resizeImage($_FILES['myFile']['tmp_name']);
             }
         } else {
-            return view('errors.403');
+            return response()->view('errors.403', [], 403);
         }
     }
 

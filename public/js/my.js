@@ -5656,9 +5656,13 @@ $(document).ready(function () {
 
                 $(".request").empty();
 
-                $.each(errorResponse['responseJSON']['errors'], function (key, value) {
-                    $(".request").append("<div class=\"mb-3 alert alert-danger\">" + value + "</div>");
-                });
+                if (errorResponse['status'] === 403) {
+                    $(".request").append("<div class=\"mb-3 alert alert-danger\">" + errorResponse['responseText'] + "</div>");
+                } else {
+                    $.each(errorResponse['responseJSON']['errors'], function (key, value) {
+                        $(".request").append("<div class=\"mb-3 alert alert-danger\">" + value + "</div>");
+                    });
+                }
             }
         });
     })

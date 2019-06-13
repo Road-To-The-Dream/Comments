@@ -182,3 +182,8 @@ p.tag:hover {
     pointer-events: none;
     border-radius: 5px;
 }
+
+.alert-danger {
+    font-size: 18px;
+    font-weight: bold;
+}
