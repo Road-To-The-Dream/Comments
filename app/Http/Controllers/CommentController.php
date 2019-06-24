@@ -7,15 +7,18 @@ use App\Http\Requests\CommentRequest;
 use App\Services\FileManager;
 use App\Services\Utility;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
+/**
+ * Class CommentController
+ * @package App\Http\Controllers
+ */
 class CommentController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function index()
+    public function index(): View
     {
         $parentComments = Comment::where('parent_id', 0)->orderBy('created_at', 'DESC')->paginate(2);
         $parents_id = Comment::select('id')->where('parent_id', 0)->get()->toArray();
@@ -28,11 +31,9 @@ class CommentController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function create()
+    public function create(): View
     {
         return view('create', [
             'parent_id' => $_GET['parent_id'] ?? null,
@@ -41,9 +42,8 @@ class CommentController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
+     * @param CommentRequest $request
+     * @param FileManager $manager
      * @return \Illuminate\Http\Response
      */
     public function store(CommentRequest $request, FileManager $manager)
@@ -56,7 +56,13 @@ class CommentController extends Controller
             $comment->user_name = $input['userName'];
             $comment->email = $input['email'];
             $comment->home_page = $input['homePage'] ?? null;
-            $comment->file = $manager->getPath();
+
+            if ($_FILES['myFile']['type'] === 'text/plain') {
+                $comment->file = $manager->moveFile($_FILES['myFile']['tmp_name']);
+            } else {
+                $comment->file = $manager->resizeImage($_FILES['myFile']['tmp_name']);
+            }
+
             $comment->text = $input['message'];
             $comment->parent_id = $input['parent_id'] ?? 0;
             $comment->level = $input['level'] ?? 0;
@@ -64,12 +70,6 @@ class CommentController extends Controller
             $comment->browser = $_SERVER["HTTP_USER_AGENT"];
 
             $comment->save();
-
-            if ($_FILES['myFile']['type'] === 'text/plain') {
-                $manager->moveFile($_FILES['myFile']['tmp_name']);
-            } else {
-                $manager->resizeImage($_FILES['myFile']['tmp_name']);
-            }
         } else {
             return response()->view('errors.403', [], 403);
         }

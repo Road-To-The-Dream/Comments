@@ -14,8 +14,6 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
 
-mix.copyDirectory('resources/user_files', 'public/user_files');
-
 mix.copyDirectory([
     'resources/img',
     'node_modules/bootstrap-fileinput/img/loading.gif',

@@ -2,14 +2,20 @@
 
 namespace App\Services;
 
+/**
+ * Class Utility
+ * @package App\Services
+ */
 class Utility
 {
-    public static function stripXSS($items)
+    /**
+     * @param $items
+     * @return array
+     */
+    public static function stripXSS($items): array
     {
-        $result = array_map(function ($item) {
+        return array_map(function ($item) {
             return strip_tags($item, '<a><code><i><strong>');
         }, $items);
-
-        return $result;
     }
 }

@@ -2,27 +2,45 @@
 
 namespace App\Services;
 
-use Intervention\Image\Facades\Image as ImageInt;
+use Intervention\Image\Facades\Image;
 
+/**
+ * Class FileManager
+ * @package App\Services
+ */
 class FileManager
 {
-    private const USER_PATH = '/../resources/user_files/';
+    private const USER_PATH = 'user_files/';
     private const DATETIME_FORMAT = 'H:i:s';
 
-    public function getPath()
+    /**
+     * @return string
+     */
+    public function getPath(): string
     {
-        return date(self::DATETIME_FORMAT) . '-' . $_FILES['myFile']['name'];
+        return self::USER_PATH . date(self::DATETIME_FORMAT) . '-' . $_FILES['myFile']['name'];
     }
 
-    public function resizeImage(string $tmpName)
+    /**
+     * @param string $tmpName
+     * @return string
+     */
+    public function resizeImage(string $tmpName): string
     {
-        $img = ImageInt::make($tmpName);
+        $img = Image::make($tmpName);
         $img->resize(320, 240)->save(getcwd() . self::USER_PATH . $this->getPath());
+
+        return $this->getPath();
     }
 
-    public function moveFile(string $tmpName)
+    /**
+     * @param string $tmpName
+     * @return string
+     */
+    public function moveFile(string $tmpName): string
     {
-        $targetPath = getcwd() . self::USER_PATH . $this->getPath();
-        move_uploaded_file($tmpName, $targetPath);
+        move_uploaded_file($tmpName, $this->getPath());
+
+        return $this->getPath();
     }
 }

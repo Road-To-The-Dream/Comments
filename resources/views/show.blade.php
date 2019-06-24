@@ -1,6 +1,6 @@
 @extends('layouts.header')
 
-@section('title', 'View comment')
+@section('title', 'Views')
 
 @section('content')
 
