@@ -5644,6 +5644,7 @@ $(document).ready(function () {
                     }
                 );
 
+                $('#comment_form')[0].reset();
                 $(".request").empty();
             },
             error: function (errorResponse) {
@@ -5654,6 +5655,9 @@ $(document).ready(function () {
                     }
                 );
 
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 500);
                 $(".request").empty();
 
                 if (errorResponse['status'] === 403) {

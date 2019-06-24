@@ -51,25 +51,23 @@ class CommentController extends Controller
         if ($request->ajax()) {
             $input = Utility::stripXSS($request->all());
 
-            $comment = new Comment();
-
-            $comment->user_name = $input['userName'];
-            $comment->email = $input['email'];
-            $comment->home_page = $input['homePage'] ?? null;
-
             if ($_FILES['myFile']['type'] === 'text/plain') {
-                $comment->file = $manager->moveFile($_FILES['myFile']['tmp_name']);
+                $path = $manager->moveFile($_FILES['myFile']['tmp_name']);
             } else {
-                $comment->file = $manager->resizeImage($_FILES['myFile']['tmp_name']);
+                $path = $manager->resizeImage($_FILES['myFile']['tmp_name']);
             }
 
-            $comment->text = $input['message'];
-            $comment->parent_id = $input['parent_id'] ?? 0;
-            $comment->level = $input['level'] ?? 0;
-            $comment->ip = $_SERVER['REMOTE_ADDR'];
-            $comment->browser = $_SERVER["HTTP_USER_AGENT"];
-
-            $comment->save();
+            Comment::create([
+                'user_name' => $input['userName'],
+                'email' => $input['email'],
+                'home_page' => $input['homePage'],
+                'file' => $path,
+                'message' => $input['message'],
+                'parent_id' => $input['parent_id'],
+                'level' => $input['level'],
+                'ip' => $_SERVER['REMOTE_ADDR'],
+                'browser' => $_SERVER['HTTP_USER_AGENT']
+            ]);
         } else {
             return response()->view('errors.403', [], 403);
         }
