@@ -28,7 +28,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <div class="col comment-text">{!! $parentComment->text !!}</div>
+                            <div class="col comment-text">{!! $parentComment->message !!}</div>
                         </div>
 
                         <div class="row">
