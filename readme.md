@@ -1,3 +1,7 @@
+<h2>
+Version PHP: 7.3<br>
+Laravel: 5.8
+</h2>
 <h1>Comment at the site</h1>
 <h5>For start project</h5>
 <ul>
