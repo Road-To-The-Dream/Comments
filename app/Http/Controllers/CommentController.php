@@ -15,6 +15,13 @@ use Illuminate\View\View;
  */
 class CommentController extends Controller
 {
+    private $fileService;
+
+    public function __construct(FileManager $fileService)
+    {
+        $this->fileService = $fileService;
+    }
+
     /**
      * @return View
      */
@@ -52,16 +59,16 @@ class CommentController extends Controller
             $input = Utility::stripXSS($request->all());
 
             if ($_FILES['myFile']['type'] === 'text/plain') {
-                $path = $manager->moveFile($_FILES['myFile']['tmp_name']);
+                $manager->moveFile($_FILES['myFile']['tmp_name']);
             } else {
-                $path = $manager->resizeImage($_FILES['myFile']['tmp_name']);
+                $manager->resizeImage($_FILES['myFile']['tmp_name']);
             }
 
             Comment::create([
                 'user_name' => $input['userName'],
                 'email' => $input['email'],
                 'home_page' => $input['homePage'],
-                'file' => $path,
+                'file' => $this->fileService->getPath(),
                 'message' => $input['message'],
                 'parent_id' => $input['parent_id'],
                 'level' => $input['level'],

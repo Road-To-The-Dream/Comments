@@ -23,24 +23,18 @@ class FileManager
 
     /**
      * @param string $tmpName
-     * @return string
      */
-    public function resizeImage(string $tmpName): string
+    public function resizeImage(string $tmpName): void
     {
         $img = Image::make($tmpName);
         $img->resize(320, 240)->save(getcwd() . self::USER_PATH . $this->getPath());
-
-        return $this->getPath();
     }
 
     /**
      * @param string $tmpName
-     * @return string
      */
-    public function moveFile(string $tmpName): string
+    public function moveFile(string $tmpName): void
     {
         move_uploaded_file($tmpName, $this->getPath());
-
-        return $this->getPath();
     }
 }

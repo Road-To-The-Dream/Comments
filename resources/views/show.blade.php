@@ -63,7 +63,7 @@
                                 </div>
 
                                 <div class="row mb-3">
-                                    <div class="col comment-text">{!! $childComment->text !!}</div>
+                                    <div class="col comment-text">{!! $childComment->message !!}</div>
                                 </div>
 
                                 <div class="row">
@@ -71,7 +71,7 @@
                                         <a href="{{ $childComment->file }}" download>Attached file</a>
                                     </div>
                                     <div class="col text-right">
-                                        <button type="button" class="btn btn-success"
+                                        <button type="button" id="btn-reply" class="btn btn-success"
                                                 onclick="window.location='/comment/create?parent_id={{ $parentComment->id }}&level={{ $childComment->level + 1 }}'">
                                             Reply
                                         </button>

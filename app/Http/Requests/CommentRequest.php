@@ -25,7 +25,7 @@ class CommentRequest extends FormRequest
     {
         return [
             'userName' => 'required',
-            'email' => 'required|unique:comments,email',
+            'email' => 'required',
             'myFile' => 'required|max:100|mimes:png,jpg,txt',
             'message' => 'required'
         ];
@@ -36,7 +36,6 @@ class CommentRequest extends FormRequest
         return [
             'userName.required' => 'Field userName is empty',
             'email.required' => 'Field email is empty',
-            'email.unique' => 'This email address already exists.',
             'myFile.required' => 'File not selected.',
             'myFile.max' => ' File may not be greater than 100 kilobytes',
             'myFile.mimes' => ' File must be a file of type: png, jpg, txt',

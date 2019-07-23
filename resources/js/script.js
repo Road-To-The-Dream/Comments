@@ -37,6 +37,7 @@ $(document).ready(function () {
             contentType: false,
             cache: false,
             success: function () {
+                scrollPageUp();
                 $.notify(
                     "Комментарий успешно добавлен !", {
                         className: 'success',
@@ -55,19 +56,23 @@ $(document).ready(function () {
                     }
                 );
 
-                $('html, body').animate({
-                    scrollTop: 0
-                }, 500);
+                scrollPageUp();
                 $(".request").empty();
 
                 if (errorResponse['status'] === 403) {
                     $(".request").append("<div class=\"mb-3 alert alert-danger\">" + errorResponse['responseText'] + "</div>");
                 } else {
                     $.each(errorResponse['responseJSON']['errors'], function (key, value) {
-                        $(".request").append("<div class=\"mb-3 alert alert-danger\">" + value + "</div>");
+                        $(".request").append("<div class=\"mb-3 alert alert-danger\">" + value + "</div></br>");
                     });
                 }
             }
         });
     })
 });
+
+function scrollPageUp() {
+    $('html, body').animate({
+        scrollTop: 0
+    }, 500);
+}
